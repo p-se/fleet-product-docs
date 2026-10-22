@@ -1,4 +1,5 @@
 = fleet gitcloner
+:description: Clones a git repository from a source or text using fleet gitcloner with options to customize the cloning process
 :revdate: 2025-07-23
 :page-revdate: {revdate}
 
@@ -8,6 +9,7 @@ Clones a git repository
 fleet gitcloner [REPO] [PATH] [flags]
 ----
 
+[#_options]
 == Options
 
 ----
@@ -22,6 +24,7 @@ fleet gitcloner [REPO] [PATH] [flags]
   -u, --username string               user name for basic auth
 ----
 
+[#_see_also]
 == SEE ALSO
 
 * xref:/reference/cli/fleet-cli/fleet.adoc[fleet]	 - Manage {product_name} operations

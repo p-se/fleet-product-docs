@@ -1,4 +1,5 @@
 = fleet test
+:description: Match a bundle to a cluster or cluster group and render the resources for that match. The fleet test command is deprecated
 :revdate: 2025-07-23
 :page-revdate: {revdate}
 
@@ -8,6 +9,7 @@ Match a bundle to a target and render the output (deprecated)
 fleet test [flags]
 ----
 
+[#_options]
 == Options
 
 ----
@@ -22,6 +24,7 @@ fleet test [flags]
   -t, --target string         Explicit target to match
 ----
 
+[#_see_also]
 == SEE ALSO
 
 * xref:/reference/cli/fleet-cli/fleet.adoc[fleet]	 - Manage {product_name} operations

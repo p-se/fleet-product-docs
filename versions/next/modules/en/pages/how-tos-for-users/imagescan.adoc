@@ -1,6 +1,8 @@
 = Using Image Scan to Update Container Image References
-:revdate: 2025-04-30
+:description: Use image scan to automatically update container image references in your git repository without manual changes to manifests
+:revdate: 2025-07-23
 :page-revdate: {revdate}
+:page-aliases: /imagescan
 
 Image scan in fleet allows you to scan your image repository, fetch the desired image and update your git repository,
 without the need to manually update your manifests.
@@ -9,6 +11,9 @@ without the need to manually update your manifests.
 ====
 
 This feature is considered as experimental feature.
+It is disabled by default.
+
+More information xref:how-tos-for-operators/installation.adoc#_enabling_imagescan[here] on how to enable it.
 ====
 
 

@@ -1,13 +1,16 @@
 = Configuration
-:revdate: 2025-04-30
+:description: Configure Fleet by using Helm values in a ConfigMap named rancher-config in the cattle-system namespace
+:revdate: 2025-07-23
 :page-revdate: {revdate}
+:page-aliases: /ref-configuration
 
 A reference list of, mostly internal, configuration options.
 
+[#_configure_fleet_install_options_in_rancher]
 == Configure {product_name} Install Options In Rancher
 
 Rancher looks for Helm values in a ConfigMap called `rancher-config` in the `cattle-system` namespace.
-Any Helm chart value for {product_name} can be specified under the name of the chart. Note the value of the {product_name} key is a string.
+Any Helm chart value for {product_name} can be specified under the name of the chart. Note the value of the Fleet key is a string.
 
 A `rancher-config` could look like this, after adding some options:
 
@@ -37,6 +40,7 @@ kubectl patch cm -n cattle-system rancher-config --type merge \
   --patch '{"data":{"fleet": "controller:\n  reconciler:\n    workers:\n      gitrepo: \"200\"\n      bundle: \"200\"\n      bundledeployment: \"200\"\n"}}'
 ----
 
+[#_helm_charts]
 == Helm Charts
 
 The Helm charts accept, at least, the options as shown with their default in `values.yaml`:
@@ -45,14 +49,17 @@ The Helm charts accept, at least, the options as shown with their default in `va
 * https://github.com/rancher/fleet/blob/main/charts/fleet-crd/values.yaml
 * https://github.com/rancher/fleet/blob/main/charts/fleet-agent/values.yaml
 
+[#_environment_variables]
 == Environment Variables
 
 The controllers can be started with these environment variables:
 
 * `CATTLE_DEV_MODE` - used to debug wrangler, not usable
+* `FLEET_BUNDLE_CREATION_MAX_CONCURRENCY` - configures the number of concurrent bundle creation routines for `fleet apply`. Default is 4. Can also be set via the `--bundle-creation-max-concurrency` CLI flag
 * `FLEET_CLUSTER_ENQUEUE_DELAY` - tune how often non-ready clusters are checked
 * `FLEET_CPU_PPROF_PERIOD` - used to turn on https://github.com/rancher/fleet/blob/main/docs/performance.md[performance profiling]
 
+[#_configuration]
 == Configuration
 
 In cluster configuration for the agent and fleet manager. Changing these can lead to full re-deployments.
@@ -62,6 +69,7 @@ The config https://github.com/rancher/fleet/blob/main/internal/config/config.go#
 * cattle-fleet-system/fleet-agent
 * cattle-fleet-system/fleet-controller
 
+[#_labels]
 == Labels
 
 Labels used by fleet:
@@ -81,6 +89,7 @@ Labels used by fleet:
  ** If this label has a value which does not match any shard ID for which a {product_name} controller is deployed, then the
 resource will not be processed.
 
+[#_annotations]
 == Annotations
 
 Annotations used by fleet:
@@ -95,6 +104,7 @@ Annotations used by fleet:
 * `fleet.cattle.io/managed` - appears unused
 * `fleet.cattle.io/service-account`
 
+[#_fleet_agent_configuration]
 == {product_name} agent configuration
 
 Tolerations, affinity and resources can be customized for the {product_name} agent. These fields can be provided when creating a

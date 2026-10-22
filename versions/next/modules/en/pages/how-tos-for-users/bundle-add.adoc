@@ -1,6 +1,8 @@
 = Create a Bundle Resource
+:description: Create a Bundle Resource by defining the resources explicitly in the Bundle Spec when deploying without a git repository
 :revdate: 2025-07-23
 :page-revdate: {revdate}
+:page-aliases: /bundle-add
 
 Bundles are automatically created by {product_name} when a `GitRepo` is created. In most cases `Bundles` should not be created
 manually by the user. If you want to deploy resources from a git repository use a
@@ -63,6 +65,7 @@ spec:
   - clusterName: local
 ----
 
+[#_targets]
 == Targets
 
 The bundle can target multiple clusters. It uses the same xref:how-tos-for-users/gitrepo-targets.adoc#_target_matching[targeting as the GitRepo].
@@ -80,6 +83,7 @@ targets:
       replicas: 1
 ----
 
+[#_limitations]
 == Limitations
 
 Helm options related to downloading the helm chart will be ignored. The helm chart is downloaded by the fleet-cli, which creates the bundles. The bundle has to contain all the resources from the chart. Therefore the bundle will ignore:
@@ -90,3 +94,8 @@ Helm options related to downloading the helm chart will be ignored. The helm cha
 You can't use a `fleet.yaml` in resources, it is only used by the fleet-cli to create bundles.
 
 The `spec.targetRestrictions` field is not useful, as it is an allow list for targets specified in `spec.targets`. It is not needed, since `targets` are explicitly given in a bundle and an empty `targetRestrictions` defaults to allow.
+
+[Note]
+====
+You can use Fleet CLI to convert a Helm chart into a `bundle`. For more information, refer to xref:how-tos-for-users/install-use-fleet-cli.adoc[Convert a Helm chart into a bundle using CLI.].
+====

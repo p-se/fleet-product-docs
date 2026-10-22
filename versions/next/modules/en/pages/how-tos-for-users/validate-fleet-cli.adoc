@@ -1,6 +1,8 @@
 = Validate Fleet CLI Deployment
+:description: Validate Fleet CLI deployment by checking Bundle and BundleDeployment status to see if resources are applied correctly
 :revdate: 2025-10-6
 :page-revdate: {revdate}
+:page-aliases: /validate-fleet-cli
 
 After applying a bundle using Fleet CLI, you can validate the deployment by inspecting the `Bundle` and its associated `BundleDeployments`.
 
@@ -17,7 +19,7 @@ To validate whether your `fleet apply` created a bundle and whether it was deplo
 kubectl get bundles.fleet.cattle.io -A
 ----
 
-image::validate-deployment-ss.png[A screenshot showing validation of the {product_name} deployment]
+image::validate-deployment-ss.png[A screenshot showing validation of the Fleet deployment]
 
 You’ll see the following fields:
 

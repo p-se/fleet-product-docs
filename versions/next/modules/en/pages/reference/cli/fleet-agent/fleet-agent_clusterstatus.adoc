@@ -1,6 +1,8 @@
 = fleet-agent clusterstatus
-:revdate: 2025-04-30
+:description: Monitor and update the status of resources in the cluster by sending continuous reports to the upstream cluster using fleet-agent
+:revdate: 2025-07-23
 :page-revdate: {revdate}
+:page-aliases: /fleet-agent_clusterstatus
 
 Continuously report resource status to the upstream cluster
 
@@ -8,6 +10,7 @@ Continuously report resource status to the upstream cluster
 fleet-agent clusterstatus [flags]
 ----
 
+[#_options]
 == Options
 
 ----
@@ -19,6 +22,7 @@ fleet-agent clusterstatus [flags]
       --namespace string          system namespace is the namespace, the agent runs in, e.g. cattle-fleet-system
 ----
 
+[#_see_also]
 == SEE ALSO
 
 * xref:/reference/cli/fleet-agent/fleet-agent.adoc[fleet-agent]	 - Manage operations with the Fleet agent that communicates with the Fleet controller
